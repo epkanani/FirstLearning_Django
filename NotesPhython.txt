@@ -1,0 +1,69 @@
+Capturing tips and tricks for backend programing 
+Python:
+#########
+to  run python on VS command palette: 
+    -> command + shift + P
+    -> type: REPL -> start REPL (will execute new teminal REPL for python)
+
+
+Use 'Type' to find the class of the function e.g. 
+    - array1 = ['a', 'b', 'c']
+    - print(Type(array1)) <- this will show the class as array 
+
+Exception handling:
+Try:
+    - execution code goes here that you are tyring to run 
+Exception:
+    - how you would like to handle if there is an exception 
+    - also can add print to display what you want to display 
+Final: 
+    - code you would like to continue 
+
+Regular expression: 
+- Import of library "re" e.g. import re
+    - can use re.match 
+    - Can use re.findall
+    - can use patterns e.g
+        - search for all digits only in a string = testpart = [r'\d']
+        - for all non digits = testpart = [r'\D']
+        - for whitespace = testpart = [r'\s']
+        - for non-whitespace = testpart = [r'\S']
+
+Printing veirables 
+    - print(locals()) <- this will print local variables within the function
+    - print(globals()) <- will print all defined global variables, including built in functions 
+
+Can call functions within a function
+    - define function 
+    - call internal function within gloabal function
+
+Functional assignment as an example below 
+def hello (s='abc'):
+    print('hello and return something)
+- To assign a function to another variable 
+    - var A = hello
+- To define execution of a function 
+    - Var A = hello() <- if i run "print(A)" i will get the execute hello function and return the result
+
+Function as an argument  
+def hello ():
+    print('hello will be passed an argument of another function)
+
+def other(func):
+    print("other")
+    print(func())
+
+other(hello) <- this will pass in hello function and the print will return value the execution for hello 
+
+Using decorators 
+    function example 
+    use of the '@' to re-assign the function
+
+use of Name and Main to check whether file has run directly or if file has been imported
+- example:  if __name__ == __main__: <- this will check if file by name has been executed directly or has been executed from 
+  another file. 
+
+
+
+
+

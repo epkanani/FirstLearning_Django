@@ -1,0 +1,110 @@
+Django is a free and open source web framework. its populary used for connect frontend development with backend development
+its used in many sites including, pinterest, PBS, Instagram, BitBucket, Mozilla and many more
+-> need to check out the Django Polling web app, just to get some understanding from Django web 
+link: https://www.djangoproject.com/
+
+-> will need a vm and will use conda virtaul environment 
+    - command line: conda create -n EKDjango_VEnv django ( this will create a conda vm with django package)
+    - activate the environment: conda activate EKDjango_VEnv  (sometime might require to use "source" e.g. source conda activate EKDjango_VEnv )
+    - deactivate the environment: conda deactivate
+    - List environment i have: conda info --envs
+
+    example: (will activate my vm and test run python then diactivate)
+        cmd (to enter Venv): conda activate EKDjango_VEnv
+        cmd (execute python): python 
+        cmd (quit python): quit()
+        cmd (to exit Venv): conda deactivate
+
+-> its encouraged to use virtual environment for your projects to keep them self-contained and not run into issue when packages are updated 
+-> further info check documentation on web link: https://docs.conda.io/en/latest/
+
+Creating first project in my virtual environment:
+#####################
+-> Need to make sure i am running my first project in the vm 
+-> activate vm 
+-> 1) created a first project - myFirstDjangoProj - using 
+    - django-admin startproject <name of project i wish to start>
+
+    - result: this will create a new folder with some files inside:
+        - __init__.py - tells python that this dir can be treated as a pa
+        - settings.py - all settings for the project
+        - urls.py - stores all url patterns for the project e.g. the different pages for the web application and how they connect to the end user
+        - wsgi.py - python script that acts as the web server gateway interface. it will help to deploy our web app to production
+        - manage.py - will store many commands used as we build our web app. we call this from the folder that we in
+    
+    - to run the django server: python manage.py runserver 
+
+    - 2) To create my first app: python manage.py startapp <app name> (make sure you are in the right project dir where you want your app)
+    - A Django project is a collection of applications and configurations that when combined together will makeup the full web 
+     web application (you complete web running on Django). Can create django application which are then used in other djengo applications
+    
+    Starting the Django APP 
+        - Creating an app syntax: python manage.py startapp <app name>
+        - App is created with the following: 
+            - Main used files are views.py (functions that handle requests and return reponses) and models.py
+            - __init__.py -> indicates folder can be treated as a package
+            - admin.py 
+            - see more.. Django level one part 3
+
+            - 3) Need to add our app in the settings.py in project app folder
+            - 4) after save need to run command; python manage.py. runserver
+
+    Configuring the view
+        in the views.py - we configure each function as a view 
+        - Each http request returns an http response
+
+        After we import view.py in the urls.py as below: 
+        update urls.py 
+            - from <app name> import view 
+            then i parttens add this [
+               - urlpatterns = [path('',views.index, name='index'), path('admin/', admin.site.urls),]
+               ]
+---------------------------------------------------------------------------------------------|
+    Also it good to have urls.py in the application so that you can control it from there instead of using the urls.py in the project space
+    Used the include function see...
+        from django.url import include -> (Add this in the project usls.py) example of using the include: 
+            from django.contrib import admin
+            from django.urls import include, path   // Always use this call don't use from django.conf.urls import path
+
+            urlpatterns = [
+                path("polls/", include("polls.urls")),
+                path("admin/", admin.site.urls),
+            ]
+
+---------------------------------------------------------------------------------------------|
+USED of TEMPLATES:
+    - Templates are mainly used for having static html content as well as some special syntax describing how dynamic content will be inserted
+    more about templates here: https://docs.djangoproject.com/en/5.0/topics/templates/
+
+    - these template variables will allow us to inject content into the HTML directly from django 
+    
+    - Creating a template structure convention = <project name folder>/Templates/<specific application templater>
+    - then editing the DIR key inside of the TEMPLATES dictionary in the settings.py file
+
+    - Adding the path of the templates to the base directory (BASE_DIR), need ot add it to the setting.py of the <inner project> folder
+
+    Adding static file references: 
+        - need to create a folder called "static" 
+        - then inside create a folder for the type of static content you want to add e.g. imgages 
+        - then update the settings.py and include path + dir see firstDjango_project.settings.py 
+        - after run the server and enter path as below in the browser to make sure you static file can be located and loaded
+            http://127.0.0.1:8000/static/images/0A3D6AD4815CBC930483B22B3C0215CA8C0EC4451B1D2AFA367695BA68AF6EEA_sk_45_cid_1.jpeg
+        - link for further more load of static files: https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+ USE OF MODELS & DB - Level 2 Django:   
+    - Django database supports: PostgreSQL, MariaDB, Oracle, SQLite and MySQL
+    - the basics about models: 
+        Each model is a Python class that subclasses django.db.models.Model.
+        Each attribute of the model represents a database field.
+        With all of this, Django gives you an automatically-generated database-access API
+
+
+Apendix see more from documentation: 
+tutorial for setting-up and starting django project plus handling requests and responses in view.py 
+link: https://docs.djangoproject.com/en/5.0/intro/tutorial01/
+
+further more read - link: https://docs.djangoproject.com/en/5.0/topics/http/urls/
+
+
+
+
