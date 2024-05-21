@@ -9,4 +9,41 @@ Pre-requisits:
         - it will then ask for a password (passphrase) (<I did not enter one>) press enter
         - it will the ask to renter password, just press enter again
         - once its done type cmd: ls  (to see listed files)
-        - 
+        - the .pub is our public key
+        - the we want to promote our key to github type: cmd cat <name of .pub>
+        - copy and paste the generated file to your github account:
+            - >settings
+            - > SSH and GPG key 
+            - > add new SSH 
+            - > save
+
+    - get a github account and create a new repository for where your code will go 
+
+Follow the following cmds to create local git repository that then will be pushed to github:
+Intitialzing Git For version control cmd from: https://codemy.com/git
+Use code if for the first time setting up:
+    $ git config --global user.name "Your Name"
+    $ git config --global user.email "you@youraddress.com"
+use code for commiting code in local repository:
+    $ git config --global push.default matching
+    $ git config --global alias.co checkout
+    $ git init
+After if we want to add everythig in the current directory into out git directory
+    $ git add . (indicates add everything)
+    $ git commit -m "<add commit reason>"
+pushing the code in the local repository to git hub
+for new reporsitry on git hub 
+    - need to create new repository 
+    - then use the instructions to push the contents to this new repository example: 
+        $ git remote add origin https://github.com/epkanani/FirstLearning_Django.git
+        $ git branch -M main 
+        $ push u- origin main
+for future updates in the current development directory: 
+    $ git add . (to add everything to the local repo)
+    $ git commit -m "<reason for commiting files>"
+    $ git push (to push your current changes)
+
+
+
+for more about repository and django
+link: https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/working-with-git/
