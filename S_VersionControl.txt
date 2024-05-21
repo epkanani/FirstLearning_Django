@@ -3,16 +3,10 @@ Using Git to version control my projects and code:
 Getting started:
 Pre-requisits: 
     - setup SSH and get ssh key  -
-    - get a github account and create a new repository for where your code will go 
-
-Follow the following cmds to create local git repository that then will be pushed to github:
-Intitialzing Git For version control cmd from: https://codemy.com/git
-Use code if for the first time setting up:
-    $ git config --global user.name "Your Name"
-    $ git config --global user.email "you@youraddress.com"
-use code for commiting code locally:
-    $ git config --global push.default matching
-    $ git config --global alias.co checkout
-    $ git init
-After if we want to add everythig in the current directory into out git directory
-    $ git add . #indicates add everything
+        - (to check whether you have existing keys (public and private)): cmd ls -al ~/.ssh 
+        -(create new ssh key for git): cmd  ssh-keygen -t ed25519 -C "your_email@example.com"
+        - it will then ask for directory where you want to save your keys (<press enter>) so its saves in the .ssh/ default
+        - it will then ask for a password (passphrase) (<I did not enter one>) press enter
+        - it will the ask to renter password, just press enter again
+        - once its done type cmd: ls  (to see listed files)
+        - 
